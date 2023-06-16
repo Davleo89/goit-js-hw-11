@@ -3,12 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Homework 11</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./css/index.css" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <div class="container">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+          width="160"
+        />
+        <button class="search-button" type="submit"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></button>
+      </form>
+    </div>
+
+    <div class="gallery">
+      <!-- Image cards will be dynamically added here -->
+    </div>
+
+    <div class="btn-loadmore">
+      <button type="button" class="load-more" hidden>Load more</button>
+    </div>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </body>
 </html>
