@@ -17,11 +17,11 @@ function clearGallery() {
 }
 
 function showNotification(message) {
-  Notiflix.Notify.Info(message);
+  Notiflix.Notify.info(message);
 }
 
 function showErrorNotification(message) {
-  Notiflix.Notify.Failure(message);
+  Notiflix.Notify.failure(message);
 }
 
 async function fetchImages(query, page = 1) {
@@ -81,7 +81,7 @@ async function handleSubmit(event) {
   const query = formData.get('searchQuery');
 
   if (!query) {
-    Notiflix.Notify.Info('Please enter a search query');
+    showNotification('Please enter a search query');
     return;
   }
 
@@ -92,7 +92,7 @@ async function handleSubmit(event) {
   const images = await fetchImages(query, currentPage);
 
   if (images.length === 0) {
-    Notiflix.Notify.Info(
+    showNotification(
       'Sorry, there are no images matching your search query. Please try again.'
     );
   } else {
@@ -109,7 +109,7 @@ async function handleLoadMore() {
   const images = await fetchImages(currentQuery, currentPage);
 
   if (images.length === 0) {
-    Notiflix.Notify.Info(
+    showNotification(
       "We're sorry, but you've reached the end of search results."
     );
     loadMoreBtn.style.display = 'none';
@@ -123,12 +123,13 @@ async function handleLoadMore() {
 
 //funcion para cargar la pagina al scrollear
 
-function handleScroll() {
+/*function handleScroll() {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight - 100) {
       handleLoadMore();
     }
-  }
+  }*/
 
 searchForm.addEventListener('submit', handleSubmit);
+loadMoreBtn.addEventListener('click', handleLoadMore);
 window.addEventListener('scroll', handleScroll)
